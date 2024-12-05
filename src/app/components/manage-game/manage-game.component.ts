@@ -11,6 +11,7 @@ import {MatInput} from '@angular/material/input';
 import {MatOption} from '@angular/material/core';
 import {MatSelect} from '@angular/material/select';
 import {NgForOf} from '@angular/common';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-manage-game',
@@ -45,11 +46,13 @@ export class ManageGameComponent implements OnInit {
 
   game?: Game;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private gameService: GameService
+    private gameService: GameService,
+    private _snackBar: MatSnackBar,
   ) {
     this.gameForm = this.formBuilder.group({
       title: ['', [Validators.required]],
@@ -91,7 +94,14 @@ export class ManageGameComponent implements OnInit {
       if (this.isEditMode && this.gameId && this.game) {
         this.gameService.edit(this.gameId, this.game).subscribe({
           next: data => {
-            console.log('ici nav');
+            this._snackBar.open("Le jeu a bien était modifier",
+              "Fermer",
+              {
+                duration: 3000,
+                horizontalPosition: 'left',
+                verticalPosition: 'top',
+              }
+            );
             this.router.navigate(['']);
           },
           error: (err) => {
@@ -101,6 +111,13 @@ export class ManageGameComponent implements OnInit {
       } else {
         this.gameService.post(this.game).subscribe({
           next: data => {
+            this._snackBar.open("Le jeu à bien ajouter"
+              , "Fermer",
+              {
+                duration: 3000,
+                horizontalPosition: 'left',
+                verticalPosition: 'top',
+              });
             this.router.navigate(['']);
           },
           error: (err) => {

@@ -1,5 +1,84 @@
+<div class="flex gap-5 ms-4 mt-2">
+  <button id="dropdownHoverButtonplatforms" data-dropdown-toggle="dropdownHoverplatforms" data-dropdown-trigger="hover"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button">
+    Console
+    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div id="dropdownHoverplatforms"
+       class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButtonplatforms">
+      <li *ngFor="let platform of platforms" (click)="selectedPlatform = platform; applyFilters()">
+        <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ platform }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <button id="dropdownHoverButtongenres" data-dropdown-toggle="dropdownHovergenres" data-dropdown-trigger="hover"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button">
+    Genre
+    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div id="dropdownHovergenres"
+       class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButtongenres">
+      <li *ngFor="let genre of genres" (click)="selectedGenre = genre; applyFilters()">
+        <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ genre }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <button id="dropdownHoverButtonboxConditionss" data-dropdown-toggle="dropdownHoverboxConditions"
+          data-dropdown-trigger="hover"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button">
+    Etat du produit
+    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div id="dropdownHoverboxConditions"
+       class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButtonboxConditions">
+      <li *ngFor="let boxCondition of boxConditions" (click)="selectedBoxCondition = boxCondition; applyFilters()">
+        <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ boxCondition }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <p>Prix</p>
+    <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
+      <input matSliderThumb>
+    </mat-slider>
+  </div>
+
+
+  <button (click)="resetFilters()" class=" bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+    Réinitialiser les filtres
+  </button>
+
+</div>
+
+<div class="flex gap-5 ms-5">
+  <p *ngIf="selectedPlatform">{{ selectedPlatform }} |</p>
+  <p *ngIf="selectedGenre">{{ selectedGenre }} |</p>
+  <p *ngIf="selectedBoxCondition">{{ selectedBoxCondition }} </p>
+</div>
+
 <div class="game-list">
-  <div *ngFor="let game of games" class="game-card">
+  <div *ngFor="let game of filteredGames" class="game-card">
     <h3 class="game-title">{{ game.title }}</h3>
     <div class="game-details">
       <p><strong>Plateforme:</strong> {{ game.platform }}<br></p>
@@ -10,10 +89,13 @@
       <p><strong>État:</strong> {{ game.box_condition }} / {{ game.cartridge_condition }}<br></p>
       <p><strong>Prix:</strong> {{ game.purchase_price | currency }}<br></p>
       <p><strong>Collection:</strong> {{ game.collection ? 'Oui' : 'Non' }}</p>
-      <button (click)="deleteGame(game.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-1" >
+      <button (click)="deleteGame(game.id)"
+              class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-1">
         Supprimer
       </button>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-4"  [routerLink]="['/game', game?.id]"> Modif</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-4"
+              [routerLink]="['/game', game?.id]"> Modif
+      </button>
     </div>
   </div>
 </div>
