@@ -22,9 +22,17 @@ export class GameService {
   get(id:string): Observable<Game> {
     return this.httpClient.get<Game>(this.apiUrl+ "/" +id)
   }
+  delete(id:string):Observable<Game> {
+   return  this.httpClient.delete<Game>(this.apiUrl+"/" +id)
+  }
+  edit(id: string, game: Game): Observable<Game> {
+    return this.httpClient.put<Game>(`${this.apiUrl}/${id}`, game, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 
 
-  post(game:Game):Observable<Game> {
+  post(game: Game | undefined):Observable<Game> {
    return this.httpClient.post<Game>(this.apiUrl,game)
   }
 

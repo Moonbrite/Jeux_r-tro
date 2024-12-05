@@ -10,6 +10,10 @@
       <p><strong>État:</strong> {{ game.box_condition }} / {{ game.cartridge_condition }}<br></p>
       <p><strong>Prix:</strong> {{ game.purchase_price | currency }}<br></p>
       <p><strong>Collection:</strong> {{ game.collection ? 'Oui' : 'Non' }}</p>
+      <button (click)="deleteGame(game.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-1" >
+        Supprimer
+      </button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-4"  [routerLink]="['/game', game?.id]"> Modif</button>
     </div>
   </div>
 </div>

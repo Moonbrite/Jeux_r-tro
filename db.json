@@ -1,8 +1,7 @@
 {
   "games": [
     {
-      "_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
-      "title": "Super Mario Odyssey",
+      "title": "test",
       "platform": "Nintendo Switch",
       "genre": "Aventure",
       "developer": "Nintendo",
@@ -11,10 +10,11 @@
       "box_condition": "Neuf",
       "cartridge_condition": "Neuf",
       "purchase_price": 59.99,
-      "collection": true
+      "collection": true,
+      "id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d"
     },
     {
-      "_id": "2f930a4e-74cc-4e3a-875d-7f983ad7b52c",
+      "id": "2f930a4e-74cc-4e3a-875d-7f983ad7b52c",
       "title": "The Witcher 3: Wild Hunt",
       "platform": "PlayStation 4",
       "genre": "RPG",
@@ -27,7 +27,7 @@
       "collection": true
     },
     {
-      "_id": "3f415a1b-9b0b-49fc-8f3d-fb85db2b69f5",
+      "id": "3f415a1b-9b0b-49fc-8f3d-fb85db2b69f5",
       "title": "FIFA 22",
       "platform": "Xbox One",
       "genre": "Sport",
@@ -40,7 +40,7 @@
       "collection": false
     },
     {
-      "_id": "4a827b1c-4047-4416-b55a-501a417c89f9",
+      "id": "4a827b1c-4047-4416-b55a-501a417c89f9",
       "title": "Halo Infinite",
       "platform": "Xbox Series X",
       "genre": "Shooter",
@@ -53,8 +53,8 @@
       "collection": true
     },
     {
-      "_id": "5dbff49f-cb88-4097-b8e5-c32e0c3894e3",
-      "title": "Animal Crossing: New Horizons",
+      "id": "5dbff49f-cb88-4097-b8e5-c32e0c3894e3",
+      "title": "Animal Crossing: tesssqs",
       "platform": "Nintendo Switch",
       "genre": "Simulation",
       "developer": "Nintendo",
@@ -63,6 +63,18 @@
       "box_condition": "Excellent",
       "cartridge_condition": "Neuf",
       "purchase_price": 49.99,
+      "collection": true
+    },
+    {
+      "id": "b0af",
+      "title": "Zelda",
+      "platform": "Nintendo Switch",
+      "genre": "RPG",
+      "developer": "NItendo",
+      "publisher": "NItendo",
+      "releaseYear": 1956,
+      "boxCondition": "Bon",
+      "purchasePrice": 27,
       "collection": true
     }
   ]

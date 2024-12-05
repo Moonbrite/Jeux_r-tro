@@ -1,5 +1,5 @@
 export class Game {
-  _id?: string;
+  id?: string;
   title?: string;
   platform?: string;
   genre?: string;
@@ -12,7 +12,7 @@ export class Game {
   collection?: boolean;
 
   constructor(
-    _id?: string,
+    id?: string,
     title?: string,
     platform?: string,
     genre?: string,
@@ -24,7 +24,7 @@ export class Game {
     purchase_price?: number,
     collection?: boolean
   ) {
-    this._id = _id;
+    this.id = id;
     this.title = title;
     this.platform = platform;
     this.genre = genre;
