@@ -1,0 +1,35 @@
+.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: #F7F7F7;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.game-card {
+  background-color: #325D79;
+  color: #F7F7F7;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33% - 16px);
+  transition: transform 0.2s;
+}
+.game-card:hover {
+  transform: scale(1.05);
+}
+.game-card .game-title {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #4CAF50;
+}
+.game-card .game-details {
+  font-size: 1rem;
+  color: #B0BEC5;
+}
+.game-card .game-details strong {
+  color: #F7F7F7;
+}
+
+/*# sourceMappingURL=list-game.component.css.map */

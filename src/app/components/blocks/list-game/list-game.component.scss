@@ -1,0 +1,43 @@
+$seasalt-color: #F7F7F7;
+$labis-lazuli-color: #325D79;
+$imperail-red-color: #E94E4E;
+$pigment-green-color: #4CAF50;
+$french-gray-color: #B0BEC5;
+
+.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: $seasalt-color;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.game-card {
+  background-color: $labis-lazuli-color;
+  color: $seasalt-color;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33% - 16px);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .game-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: $pigment-green-color;
+  }
+
+  .game-details {
+    font-size: 1rem;
+    color: $french-gray-color;
+
+    strong {
+      color: $seasalt-color;
+    }
+  }
+}

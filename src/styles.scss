@@ -3,6 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
+$seasalt-color: #F7F7F7;
+$labis-lazuli-color: #325D79;
+$imperail-red-color: #E94E4E;
+$pigment-green-color: #4CAF50;
+$french-gray-color:#B0BEC5;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

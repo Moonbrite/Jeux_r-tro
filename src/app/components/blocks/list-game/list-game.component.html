@@ -1,0 +1,16 @@
+<div class="game-list">
+  <div *ngFor="let game of games" class="game-card">
+    <h3 class="game-title">{{ game.title }}</h3>
+    <div class="game-details">
+      <p><strong>Plateforme:</strong> {{ game.platform }}<br></p>
+      <p><strong>Genre:</strong> {{ game.genre }}<br></p>
+      <p><strong>Développeur:</strong> {{ game.developer }}<br></p>
+      <p><strong>Éditeur:</strong> {{ game.publisher }}<br></p>
+      <p><strong>Année:</strong> {{ game.release_year }}<br></p>
+      <p><strong>État:</strong> {{ game.box_condition }} / {{ game.cartridge_condition }}<br></p>
+      <p><strong>Prix:</strong> {{ game.purchase_price | currency }}<br></p>
+      <p><strong>Collection:</strong> {{ game.collection ? 'Oui' : 'Non' }}</p>
+    </div>
+  </div>
+</div>
+
