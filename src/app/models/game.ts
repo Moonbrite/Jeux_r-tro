@@ -1,28 +1,28 @@
 export class Game {
-  _id: string;
-  title: string;
-  platform: string;
-  genre: string;
-  developer: string;
-  publisher: string;
-  release_year: number;
-  box_condition: string;
-  cartridge_condition: string;
-  purchase_price: number;
-  collection: boolean;
+  _id?: string;
+  title?: string;
+  platform?: string;
+  genre?: string;
+  developer?: string;
+  publisher?: string;
+  release_year?: number;
+  box_condition?: string;
+  cartridge_condition?: string;
+  purchase_price?: number;
+  collection?: boolean;
 
   constructor(
-    _id: string,
-    title: string,
-    platform: string,
-    genre: string,
-    developer: string,
-    publisher: string,
-    release_year: number,
-    box_condition: string,
-    cartridge_condition: string,
-    purchase_price: number,
-    collection: boolean
+    _id?: string,
+    title?: string,
+    platform?: string,
+    genre?: string,
+    developer?: string,
+    publisher?: string,
+    release_year?: number,
+    box_condition?: string,
+    cartridge_condition?: string,
+    purchase_price?: number,
+    collection?: boolean
   ) {
     this._id = _id;
     this.title = title;
