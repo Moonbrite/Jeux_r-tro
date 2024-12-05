@@ -4,14 +4,15 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Game} from '../../models/game';
 import {GameService} from '../../services/game';
 import {MatButton} from '@angular/material/button';
-import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatCheckbox} from '@angular/material/checkbox';
-import {MatFormField, MatLabel} from '@angular/material/form-field';
+import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {MatOption} from '@angular/material/core';
 import {MatSelect} from '@angular/material/select';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-manage-game',
@@ -19,6 +20,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     FormsModule,
     MatButton,
     MatCard,
+    MatError,
     MatCardContent,
     MatCardTitle,
     MatCheckbox,
@@ -28,7 +30,10 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     MatOption,
     MatSelect,
     NgForOf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIcon,
+    NgIf,
+    MatCardHeader
   ],
   templateUrl: './manage-game.component.html',
   standalone: true,
@@ -45,6 +50,8 @@ export class ManageGameComponent implements OnInit {
   boxConditions: string[] = ['Neuf', 'Excellent', 'Bon', 'Usé'];
 
   game?: Game;
+
+  currentYear = new Date().getFullYear();
 
 
   constructor(

@@ -1,43 +1,153 @@
+// Color Variables
 $seasalt-color: #F7F7F7;
 $labis-lazuli-color: #325D79;
 $imperail-red-color: #E94E4E;
 $pigment-green-color: #4CAF50;
 $french-gray-color: #B0BEC5;
 
-.game-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  background-color: $seasalt-color;
-  padding: 16px;
+
+
+// Filter Section
+.filter-section {
+  background-color: white;
   border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-filter {
+  background-color: $labis-lazuli-color;
+  color: $seasalt-color;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #1e429f;
+  }
+}
+
+.dropdown-menu {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  li {
+    &:hover {
+      background-color: $seasalt-color;
+      color: $labis-lazuli-color;
+    }
+  }
+}
+
+.price-input {
+  border-color: $labis-lazuli-color;
+  &:focus {
+    border-color: $pigment-green-color;
+    ring-color: $pigment-green-color;
+  }
+}
+
+.btn-reset {
+  background-color: $imperail-red-color;
+  &:hover {
+    background-color: #e32121;
+  }
+}
+
+.active-filters {
+  .filter-tag {
+    background-color: $labis-lazuli-color;
+    color: $seasalt-color;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+  }
+}
+
+// Game List
+.game-list {
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 .game-card {
   background-color: $labis-lazuli-color;
   color: $seasalt-color;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: calc(33% - 16px);
-  transition: transform 0.2s;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
   }
 
   .game-title {
     font-size: 1.5rem;
-    margin-bottom: 8px;
+    font-weight: bold;
     color: $pigment-green-color;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid $pigment-green-color;
+    padding-bottom: 0.5rem;
   }
 
   .game-details {
-    font-size: 1rem;
     color: $french-gray-color;
 
     strong {
       color: $seasalt-color;
+      margin-right: 0.5rem;
     }
+
+    .badge {
+      background-color: $pigment-green-color;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+  }
+
+  .game-actions {
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+
+      &-delete {
+        background-color: $imperail-red-color;
+        color: white;
+        &:hover {
+          background-color: #e32121;
+        }
+      }
+
+      &-edit {
+        background-color: $pigment-green-color;
+        color: white;
+        &:hover {
+          background-color: #3d8b40;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .game-list {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card {
+    width: 100%;
   }
 }

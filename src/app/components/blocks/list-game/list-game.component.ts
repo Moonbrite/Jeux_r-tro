@@ -3,7 +3,7 @@ import {Game} from '../../../models/game';
 import {GameService} from '../../../services/game';
 import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
-import {MatSlider, MatSliderThumb} from '@angular/material/slider';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-list-game',
@@ -12,8 +12,7 @@ import {MatSlider, MatSliderThumb} from '@angular/material/slider';
     CurrencyPipe,
     RouterLink,
     NgIf,
-    MatSlider,
-    MatSliderThumb
+    FormsModule,
   ],
   templateUrl: './list-game.component.html',
   standalone: true,
@@ -36,19 +35,13 @@ export class ListGameComponent implements OnInit {
 
   filteredGames: Game[] = [];
 
-  formatLabel(value: number): string {
-    if (value >= 1000) {
-      return Math.round(value / 1000) + '€';
-    }
-    return `${value}`;
-  }
 
   ngOnInit(): void {
     this.gameService.getAll().subscribe({
       next: (data) => {
         this.games = data;
         this.filteredGames = [...this.games];
-        this.selectedPrice = 100; // Valeur par défaut du slider
+        this.selectedPrice = 0;
       },
       error: (err) => {
         console.log(err);
@@ -61,7 +54,7 @@ export class ListGameComponent implements OnInit {
     if (id){
       this.gameService.delete(id).subscribe({
         next: (data)=> {
-          this.games.splice(this.games.indexOf(<Game>this.games.find(game => game.id == id)), 1);
+          this.filteredGames.splice(this.filteredGames.indexOf(<Game>this.games.find(game => game.id == id)), 1);
         },
         error: (err)=> {console.log(err)},
       })
@@ -72,16 +65,20 @@ export class ListGameComponent implements OnInit {
     this.selectedPlatform = null;
     this.selectedGenre = null;
     this.selectedBoxCondition = null;
+    this.selectedPrice = null;
     this.filteredGames = [...this.games];
   }
 
 
   applyFilters(): void {
-    this.filteredGames = this.games.filter(game => {
+    this.filteredGames = this.games.filter((game) => {
       const matchesPlatform = this.selectedPlatform ? game.platform === this.selectedPlatform : true;
       const matchesGenre = this.selectedGenre ? game.genre === this.selectedGenre : true;
       const matchesBoxCondition = this.selectedBoxCondition ? game.box_condition === this.selectedBoxCondition : true;
-      return matchesPlatform && matchesGenre && matchesBoxCondition ;
+      // @ts-ignore
+      const matchesPrice = this.selectedPrice !== null ? game.purchase_price <= this.selectedPrice : true;
+
+      return matchesPlatform && matchesGenre && matchesBoxCondition && matchesPrice;
     });
   }
 

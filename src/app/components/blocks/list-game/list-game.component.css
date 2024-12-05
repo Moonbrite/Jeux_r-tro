@@ -1,35 +1,125 @@
-.game-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  background-color: #F7F7F7;
-  padding: 16px;
+.filter-section {
+  background-color: white;
   border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-filter {
+  background-color: #325D79;
+  color: #F7F7F7;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+.btn-filter:hover {
+  cursor: pointer;
+  background-color: #1e429f;
+}
+
+.dropdown-menu {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.dropdown-menu li:hover {
+  background-color: #F7F7F7;
+  color: #325D79;
+}
+
+.price-input {
+  border-color: #325D79;
+}
+.price-input:focus {
+  border-color: #4CAF50;
+  ring-color: #4CAF50;
+}
+
+.btn-reset {
+  background-color: #E94E4E;
+}
+.btn-reset:hover {
+  background-color: #e32121;
+}
+
+.active-filters .filter-tag {
+  background-color: #325D79;
+  color: #F7F7F7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+.game-list {
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 .game-card {
   background-color: #325D79;
   color: #F7F7F7;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: calc(33% - 16px);
-  transition: transform 0.2s;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .game-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 .game-card .game-title {
   font-size: 1.5rem;
-  margin-bottom: 8px;
+  font-weight: bold;
   color: #4CAF50;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 0.5rem;
 }
 .game-card .game-details {
-  font-size: 1rem;
   color: #B0BEC5;
 }
 .game-card .game-details strong {
   color: #F7F7F7;
+  margin-right: 0.5rem;
+}
+.game-card .game-details .badge {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+.game-card .game-actions .btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+.game-card .game-actions .btn-delete {
+  background-color: #E94E4E;
+  color: white;
+}
+.game-card .game-actions .btn-delete:hover {
+  background-color: #e32121;
+}
+.game-card .game-actions .btn-edit {
+  background-color: #4CAF50;
+  color: white;
+}
+.game-card .game-actions .btn-edit:hover {
+  background-color: #3d8b40;
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .game-list {
+    grid-template-columns: 1fr;
+  }
+  .game-card {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=list-game.component.css.map */

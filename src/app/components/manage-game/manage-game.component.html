@@ -1,75 +1,97 @@
 <div class="add-game-container">
-  <mat-card>
-    <mat-card-title class="text-center ">{{ isEditMode ? 'Modifier le jeu' : 'Ajouter un jeu' }}</mat-card-title>
+  <mat-card class="game-form-card">
+    <mat-card-header class="form-header">
+      <mat-card-title class="form-title">
+        {{ isEditMode ? 'Modifier le jeu' : 'Ajouter un jeu' }}
+      </mat-card-title>
+    </mat-card-header>
+
     <mat-card-content>
-      <form [formGroup]="gameForm" (ngSubmit)="submitForm()">
-        <mat-form-field appearance="fill">
-          <mat-label>Titre</mat-label>
-          <input matInput formControlName="title" required/>
-        </mat-form-field>
+      <form [formGroup]="gameForm" (ngSubmit)="submitForm()" class="game-form">
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Titre du jeu</mat-label>
+            <input matInput formControlName="title" required placeholder="Entrez le titre"/>
+            <mat-error *ngIf="gameForm.get('title')?.invalid">Le titre est requis</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Plateforme</mat-label>
-          <mat-select formControlName="platform">
-            <mat-option *ngFor="let platform of platforms" [value]="platform">
-              {{ platform }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Plateforme</mat-label>
+            <mat-select formControlName="platform" placeholder="Sélectionnez une plateforme">
+              <mat-option *ngFor="let platform of platforms" [value]="platform">
+                {{ platform }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Genre</mat-label>
-          <mat-select formControlName="genre">
-            <mat-option *ngFor="let genre of genres" [value]="genre">
-              {{ genre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Genre</mat-label>
+            <mat-select formControlName="genre" placeholder="Choisissez un genre">
+              <mat-option *ngFor="let genre of genres" [value]="genre">
+                {{ genre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Développeur</mat-label>
-          <input matInput formControlName="developer"/>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Développeur</mat-label>
+            <input matInput formControlName="developer" placeholder="Nom du développeur"/>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Éditeur</mat-label>
-          <input matInput formControlName="publisher"/>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Éditeur</mat-label>
+            <input matInput formControlName="publisher" placeholder="Nom de l'éditeur"/>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Année de sortie</mat-label>
-          <input min="1950" matInput type="number" formControlName="release_year"/>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Année de sortie</mat-label>
+            <input matInput type="number" formControlName="release_year"
+                   min="1950" max="{{ currentYear }}"
+                   placeholder="Année de sortie"/>
+            <mat-error *ngIf="gameForm.get('release_year')?.invalid">
+              Année invalide (entre 1950 et {{ currentYear }})
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>État de la boîte</mat-label>
-          <mat-select formControlName="box_condition">
-            <mat-option *ngFor="let box_condition of boxConditions" [value]="box_condition">
-              {{ box_condition }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>État de la boîte</mat-label>
+            <mat-select formControlName="box_condition" placeholder="Sélectionnez l'état">
+              <mat-option *ngFor="let condition of boxConditions" [value]="condition">
+                {{ condition }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Cartridge_condition</mat-label>
-          <mat-select formControlName="cartridge_condition">
-            <mat-option *ngFor="let cartridge_condition of boxConditions" [value]="cartridge_condition">
-              {{ cartridge_condition }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>État de la cartouche</mat-label>
+            <mat-select formControlName="cartridge_condition" placeholder="Sélectionnez l'état">
+              <mat-option *ngFor="let condition of boxConditions" [value]="condition">
+                {{ condition }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Prix d'achat</mat-label>
-          <input matInput type="number" formControlName="purchase_price"/>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Prix d'achat</mat-label>
+            <input matInput type="number" formControlName="purchase_price"
+                   placeholder="Prix en euros" min="0" step="0.01"/>
+            <mat-icon matSuffix>euro</mat-icon>
+          </mat-form-field>
+        </div>
 
-        <mat-checkbox formControlName="collection">Ajouté à la collection</mat-checkbox>
+        <div class="form-actions">
+          <mat-checkbox formControlName="collection" color="primary" class="collection-checkbox">
+            Ajouté à la collection
+          </mat-checkbox>
 
-        <button mat-raised-button color="primary" class="ms-5" style="margin-top: 0!important;" type="submit"
-                [disabled]="gameForm.invalid">
-          {{ isEditMode ? 'Modifier' : 'Ajouter' }}
-        </button>
+          <button mat-raised-button
+                  color="primary"
+                  type="submit"
+                  [disabled]="gameForm.invalid"
+                  class="submit-button">
+            {{ isEditMode ? 'Mettre à jour' : 'Ajouter le jeu' }}
+          </button>
+        </div>
       </form>
     </mat-card-content>
   </mat-card>
