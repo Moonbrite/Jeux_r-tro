@@ -5,7 +5,7 @@
 }
 
 .btn-filter {
-  background-color: #325D79;
+  background-color: #175dc1;
   color: #F7F7F7;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -22,11 +22,11 @@
 }
 .dropdown-menu li:hover {
   background-color: #F7F7F7;
-  color: #325D79;
+  color: #175dc1;
 }
 
 .price-input {
-  border-color: #325D79;
+  border-color: #175dc1;
 }
 .price-input:focus {
   border-color: #4CAF50;
@@ -41,7 +41,7 @@
 }
 
 .active-filters .filter-tag {
-  background-color: #325D79;
+  background-color: #175dc1;
   color: #F7F7F7;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
@@ -54,7 +54,7 @@
 }
 
 .game-card {
-  background-color: #325D79;
+  background-color: #175dc1;
   color: #F7F7F7;
   border-radius: 0.5rem;
   padding: 1.5rem;
@@ -68,7 +68,7 @@
 .game-card .game-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #4CAF50;
+  color: #F7F7F7;
   margin-bottom: 1rem;
   border-bottom: 2px solid #4CAF50;
   padding-bottom: 0.5rem;
