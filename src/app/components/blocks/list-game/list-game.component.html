@@ -105,7 +105,7 @@
   <!-- Game List -->
   <div class="game-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div *ngFor="let game of filteredGames" class="game-card group ">
-      <div class="flex justify-end">
+      <div class="flex justify-end flex-col">
 
         <a (click)="addFavori(game.id)">
           <svg
@@ -124,6 +124,9 @@
             ></path>
           </svg>
         </a>
+        <div *ngIf="game.rating">
+         <p style="font-size: .9rem;">{{game.rating |number:'1.0-2'}} avg Note</p>
+        </div>
       </div>
       <h3 class="game-title">{{ game.title }}</h3>
       <div class="game-details">

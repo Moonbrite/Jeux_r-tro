@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Game} from '../../../models/game';
 import {GameService} from '../../../services/game';
-import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
+import {CurrencyPipe, DecimalPipe, NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 
@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
     RouterLink,
     NgIf,
     FormsModule,
+    DecimalPipe,
   ],
   templateUrl: './list-game.component.html',
   standalone: true,

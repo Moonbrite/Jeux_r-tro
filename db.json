@@ -39,7 +39,7 @@
           "comment": "Merci pour le prêt, je l'ai bien apprécié !"
         }
       ],
-      "favorites": false,
+      "favorites": true,
       "comments": [
         {
           "id": "99c9",
@@ -56,9 +56,17 @@
           "date": 1733494598617,
           "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
           "rating": 1
+        },
+        {
+          "id": "1c0a",
+          "author": "test",
+          "comment": "test",
+          "date": 1733495509064,
+          "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+          "rating": 4
         }
       ],
-      "rating": 3
+      "rating": 3.3333333333333335
     },
     {
       "title": "The Witcher 3: Wild Huntrr",
@@ -73,7 +81,7 @@
       "collection": true,
       "rating": 3,
       "id": "2f930a4e-74cc-4e3a-875d-7f983ad7b52c",
-      "favorites": false
+      "favorites": true
     }
   ],
   "comments": [
@@ -92,6 +100,14 @@
       "date": 1733494598617,
       "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
       "rating": 1
+    },
+    {
+      "id": "1c0a",
+      "author": "test",
+      "comment": "test",
+      "date": 1733495509064,
+      "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+      "rating": 4
     }
   ],
   "events": [
@@ -101,6 +117,12 @@
       "name": "Tournoi Mario Odyssey",
       "description": "Compétition locale de speedrun.",
       "date": "2024-12-15"
+    },
+    {
+      "id": "34b6",
+      "name": "Test",
+      "description": "test",
+      "date": "2024-12-05"
     }
   ],
   "loans": [
