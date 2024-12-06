@@ -1,7 +1,7 @@
 {
   "games": [
     {
-      "title": "test",
+      "title": "Super Mario Odyssey",
       "platform": "Nintendo Switch",
       "genre": "Aventure",
       "developer": "Nintendo",
@@ -11,11 +11,57 @@
       "cartridge_condition": "Neuf",
       "purchase_price": 59.99,
       "collection": true,
-      "id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d"
+      "id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+      "events": [
+        {
+          "id": "event1",
+          "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+          "name": "Tournoi Mario Odyssey",
+          "description": "Compétition locale de speedrun.",
+          "date": "2024-12-15"
+        }
+      ],
+      "loans": [
+        {
+          "id": "loan1",
+          "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+          "borrower_name": "Alice Dupont",
+          "loan_date": "2024-12-01",
+          "return_date": "2024-12-03",
+          "comment": "Le jeu est en parfait état."
+        },
+        {
+          "id": "loan2",
+          "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+          "borrower_name": "Jean Martin",
+          "loan_date": "2024-11-15",
+          "return_date": "2024-11-20",
+          "comment": "Merci pour le prêt, je l'ai bien apprécié !"
+        }
+      ],
+      "favorites": false,
+      "comments": [
+        {
+          "id": "99c9",
+          "author": "Jose",
+          "comment": "Incroyableeeeeeeeeeeee !!!!!!!",
+          "date": 1733494589433,
+          "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+          "rating": 5
+        },
+        {
+          "id": "d08f",
+          "author": "test",
+          "comment": "test",
+          "date": 1733494598617,
+          "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+          "rating": 1
+        }
+      ],
+      "rating": 3
     },
     {
-      "id": "2f930a4e-74cc-4e3a-875d-7f983ad7b52c",
-      "title": "The Witcher 3: Wild Hunt",
+      "title": "The Witcher 3: Wild Huntrr",
       "platform": "PlayStation 4",
       "genre": "RPG",
       "developer": "CD Projekt Red",
@@ -24,58 +70,55 @@
       "box_condition": "Excellent",
       "cartridge_condition": "Bon",
       "purchase_price": 49.99,
-      "collection": true
+      "collection": true,
+      "rating": 3,
+      "id": "2f930a4e-74cc-4e3a-875d-7f983ad7b52c",
+      "favorites": false
+    }
+  ],
+  "comments": [
+    {
+      "id": "99c9",
+      "author": "Jose",
+      "comment": "Incroyableeeeeeeeeeeee !!!!!!!",
+      "date": 1733494589433,
+      "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+      "rating": 5
     },
     {
-      "id": "3f415a1b-9b0b-49fc-8f3d-fb85db2b69f5",
-      "title": "FIFA 22",
-      "platform": "Xbox One",
-      "genre": "Sport",
-      "developer": "EA Sports",
-      "publisher": "Electronic Arts",
-      "release_year": 2021,
-      "box_condition": "Usé",
-      "cartridge_condition": "Usé",
-      "purchase_price": 39.99,
-      "collection": false
+      "id": "d08f",
+      "author": "test",
+      "comment": "test",
+      "date": 1733494598617,
+      "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+      "rating": 1
+    }
+  ],
+  "events": [
+    {
+      "id": "event1",
+      "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+      "name": "Tournoi Mario Odyssey",
+      "description": "Compétition locale de speedrun.",
+      "date": "2024-12-15"
+    }
+  ],
+  "loans": [
+    {
+      "id": "loan1",
+      "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+      "borrower_name": "Alice Dupont",
+      "loan_date": "2024-12-01",
+      "return_date": "2024-12-03",
+      "comment": "Le jeu est en parfait état."
     },
     {
-      "id": "4a827b1c-4047-4416-b55a-501a417c89f9",
-      "title": "Halo Infinite",
-      "platform": "Xbox Series X",
-      "genre": "Shooter",
-      "developer": "343 Industries",
-      "publisher": "Microsoft",
-      "release_year": 2021,
-      "box_condition": "Bon",
-      "cartridge_condition": "Bon",
-      "purchase_price": 69.99,
-      "collection": true
-    },
-    {
-      "id": "5dbff49f-cb88-4097-b8e5-c32e0c3894e3",
-      "title": "Animal Crossing: tesssqs",
-      "platform": "Nintendo Switch",
-      "genre": "Simulation",
-      "developer": "Nintendo",
-      "publisher": "Nintendo",
-      "release_year": 2020,
-      "box_condition": "Excellent",
-      "cartridge_condition": "Neuf",
-      "purchase_price": 49.99,
-      "collection": true
-    },
-    {
-      "id": "b0af",
-      "title": "Zelda",
-      "platform": "Nintendo Switch",
-      "genre": "RPG",
-      "developer": "NItendo",
-      "publisher": "NItendo",
-      "releaseYear": 1956,
-      "boxCondition": "Bon",
-      "purchasePrice": 27,
-      "collection": true
+      "id": "loan2",
+      "game_id": "1b348f92-a207-4d9c-8f69-e88a0a2c723d",
+      "borrower_name": "Jean Martin",
+      "loan_date": "2024-11-15",
+      "return_date": "2024-11-20",
+      "comment": "Merci pour le prêt, je l'ai bien apprécié !"
     }
   ]
 }

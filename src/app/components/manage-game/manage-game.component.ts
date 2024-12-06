@@ -49,7 +49,7 @@ export class ManageGameComponent implements OnInit {
   genres: string[] = ['Aventure', 'RPG', 'Sport', 'Simulation', 'Shooter'];
   boxConditions: string[] = ['Neuf', 'Excellent', 'Bon', 'Usé'];
 
-  game?: Game;
+  game: Game = new Game();
 
   currentYear = new Date().getFullYear();
 

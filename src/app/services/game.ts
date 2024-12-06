@@ -19,18 +19,21 @@ export class GameService {
   getAll(): Observable<Game[]> {
     return this.httpClient.get<Game[]>(this.apiUrl)
   }
-  get(id:string): Observable<Game> {
+  get(id:string): Observable<any> {
     return this.httpClient.get<Game>(this.apiUrl+ "/" +id)
   }
   delete(id:string):Observable<Game> {
    return  this.httpClient.delete<Game>(this.apiUrl+"/" +id)
   }
   edit(id: string, game: Game): Observable<Game> {
-    return this.httpClient.put<Game>(`${this.apiUrl}/${id}`, game, {
+    return this.httpClient.put<Game>(this.apiUrl+"/" +id, game, {
       headers: { 'Content-Type': 'application/json' }
     });
   }
 
+  updateGame(game: Game): Observable<Game> {
+    return this.httpClient.put<Game>(this.apiUrl+"/"+game.id, game);
+  }
 
   post(game: Game | undefined):Observable<Game> {
    return this.httpClient.post<Game>(this.apiUrl,game)
