@@ -1,0 +1,75 @@
+<div class="add-loan-container">
+  <mat-card class="loan-form-card">
+    <mat-card-header class="form-header">
+      <mat-card-title class="form-title">Ajouter un prêt</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loanForm" (ngSubmit)="submitLoan()" class="loan-form mt-4">
+        <div class="form-grid">
+          <!-- Nom de l'emprunteur -->
+          <mat-form-field appearance="outline">
+            <mat-label>Nom de l'emprunteur</mat-label>
+            <input matInput formControlName="borrower_name" required placeholder="Entrez le nom de l'emprunteur" />
+            <mat-error *ngIf="loanForm.get('borrower_name')?.invalid">Le nom est requis</mat-error>
+          </mat-form-field>
+
+          <!-- Date de prêt -->
+          <div class="date-field">
+            <label for="loan_date">Date de prêt</label>
+            <input type="date" id="loan_date" formControlName="loan_date" required />
+            <div *ngIf="loanForm.get('loan_date')?.invalid && loanForm.get('loan_date')?.touched" class="error-message">
+              La date de prêt est requise
+            </div>
+          </div>
+
+          <!-- Date de retour -->
+          <div class="date-field">
+            <label for="return_date">Date de retour</label>
+            <input type="date" id="return_date" formControlName="return_date" required />
+            <div *ngIf="loanForm.get('return_date')?.invalid && loanForm.get('return_date')?.touched" class="error-message">
+              La date de retour est requise
+            </div>
+            <div *ngIf="loanForm.errors" class="error-message">
+              La date de retour doit être supérieure à la date de prêt.
+            </div>
+          </div>
+
+
+          <!-- Commentaire -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Commentaire</mat-label>
+            <textarea matInput formControlName="comment" rows="4" placeholder="Ajoutez un commentaire (facultatif)"></textarea>
+          </mat-form-field>
+        </div>
+
+        <!-- Bouton d'action -->
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="loanForm.invalid" class="submit-button">
+            Ajouter le prêt
+          </button>
+          <div *ngIf="isLoad" class="error-message">
+            Le jeux et deja enprunter a c'est date la.
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<div *ngIf="game?.loans && game?.loans?.length " class="loan-history">
+  <h3>Historique des prêts</h3>
+  <ul>
+    <li *ngFor="let loan of game?.loans">
+      <p><strong>Nom :</strong> {{ loan.borrower_name }}</p>
+      <p><strong>Date de prêt :</strong> {{ loan.loan_date | date: 'shortDate' }}</p>
+      <p><strong>Date de retour :</strong> {{ loan.return_date | date: 'shortDate' }}</p>
+      <p><strong>Commentaire :</strong> {{ loan.comment }}</p>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf=" !game?.loans?.length " class="loan-history text-center">
+ <p>Le jeux n'a jamais étais emprunter</p>
+</div>

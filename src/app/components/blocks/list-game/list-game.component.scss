@@ -6,7 +6,6 @@ $pigment-green-color: #4CAF50;
 $french-gray-color: #B0BEC5;
 
 
-
 // Filter Section
 .filter-section {
   background-color: white;
@@ -41,6 +40,7 @@ $french-gray-color: #B0BEC5;
 
 .price-input {
   border-color: $labis-lazuli-color;
+
   &:focus {
     border-color: $pigment-green-color;
     ring-color: $pigment-green-color;
@@ -49,6 +49,7 @@ $french-gray-color: #B0BEC5;
 
 .btn-reset {
   background-color: $imperail-red-color;
+
   &:hover {
     background-color: #e32121;
   }
@@ -127,6 +128,7 @@ $french-gray-color: #B0BEC5;
       &-delete {
         background-color: $imperail-red-color;
         color: white;
+
         &:hover {
           background-color: #e32121;
         }
@@ -135,11 +137,24 @@ $french-gray-color: #B0BEC5;
       &-edit {
         background-color: $pigment-green-color;
         color: white;
+
         &:hover {
           background-color: #3d8b40;
         }
       }
     }
+  }
+}
+
+.loan-btn{
+  width: 100%;
+  margin-top: 5px;
+  background-color: #B0BEC5;
+  padding: 5px;
+  &:hover{
+    background-color: #979fa2;
+    color: white;
+    transition: ease-in-out .2s;
   }
 }
 

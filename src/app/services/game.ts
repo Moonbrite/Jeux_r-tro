@@ -19,7 +19,8 @@ export class GameService {
   getAll(): Observable<Game[]> {
     return this.httpClient.get<Game[]>(this.apiUrl)
   }
-  get(id:string): Observable<any> {
+
+    get(id: string | null): Observable<any> {
     return this.httpClient.get<Game>(this.apiUrl+ "/" +id)
   }
   delete(id:string):Observable<Game> {

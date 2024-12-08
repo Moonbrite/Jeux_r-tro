@@ -20,7 +20,7 @@ export class Game {
   rating?: number;
   comments?: Comment[];
   events?: Event[];
-  loan_history?: Loan[];
+  loans?: Loan[];
   status?: string;
 
   constructor(
@@ -40,7 +40,7 @@ export class Game {
     rating?: number,
     comments?: Comment[],
     events?: Event[],
-    loan_history?: Loan[],
+    loans?: Loan[],
     status?: string
   ) {
     this.id = id;
@@ -59,7 +59,7 @@ export class Game {
     this.rating = rating;
     this.comments = comments;
     this.events = events;
-    this.loan_history = loan_history;
+    this.loans = loans;
     this.status = status;
   }
 }

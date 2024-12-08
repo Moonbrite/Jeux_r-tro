@@ -113,6 +113,18 @@
   background-color: #3d8b40;
 }
 
+.loan-btn {
+  width: 100%;
+  margin-top: 5px;
+  background-color: #B0BEC5;
+  padding: 5px;
+}
+.loan-btn:hover {
+  background-color: #979fa2;
+  color: white;
+  transition: ease-in-out 0.2s;
+}
+
 @media (max-width: 768px) {
   .filter-section {
     flex-direction: column;

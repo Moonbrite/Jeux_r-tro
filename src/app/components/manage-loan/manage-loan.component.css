@@ -1,0 +1,65 @@
+.add-loan-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.loan-form-card {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  border-radius: 8px 8px 0 0;
+}
+
+.form-title {
+  font-size: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.submit-button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.loan-history {
+  max-width: 1400px;
+  margin: 16px auto 0;
+}
+.loan-history h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.loan-history ul {
+  list-style: none;
+  padding: 0;
+}
+.loan-history ul li {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/*# sourceMappingURL=manage-loan.component.css.map */
