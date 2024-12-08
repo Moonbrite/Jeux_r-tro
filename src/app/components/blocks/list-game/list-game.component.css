@@ -61,6 +61,10 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.game-card .star:hover {
+  transition: transform 0.3s ease-in;
+  fill: yellow;
+}
 .game-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
@@ -107,6 +111,18 @@
 }
 .game-card .game-actions .btn-edit:hover {
   background-color: #3d8b40;
+}
+
+.loan-btn {
+  width: 100%;
+  margin-top: 5px;
+  background-color: #B0BEC5;
+  padding: 5px;
+}
+.loan-btn:hover {
+  background-color: #979fa2;
+  color: white;
+  transition: ease-in-out 0.2s;
 }
 
 @media (max-width: 768px) {

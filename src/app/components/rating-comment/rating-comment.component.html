@@ -1,0 +1,80 @@
+<div class="add-comment-container">
+  <mat-card class="comment-form-card">
+    <mat-card-header class="form-header">
+      <mat-card-title class="form-title">Ajouter un commentaire</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Formulaire pour ajouter un commentaire -->
+      <form [formGroup]="commentForm" (ngSubmit)="submitComment()" class="comment-form mt-4">
+        <div class="form-grid">
+          <!-- Champ Auteur -->
+          <mat-form-field appearance="outline">
+            <mat-label>Auteur</mat-label>
+            <input matInput formControlName="author" required placeholder="Entrez votre nom ou pseudonyme" />
+            <mat-error *ngIf="commentForm.get('author')?.invalid">Le champ auteur est requis</mat-error>
+          </mat-form-field>
+
+          <!-- Champ Commentaire -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Commentaire</mat-label>
+            <textarea matInput formControlName="comment" rows="4" required placeholder="Écrivez votre commentaire"></textarea>
+            <mat-error *ngIf="commentForm.get('comment')?.invalid">Le commentaire est requis</mat-error>
+          </mat-form-field>
+
+          <!-- Notation -->
+          <div class="rating-field">
+            <p>Notation :</p>
+            <div class="stars">
+              <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                <mat-icon
+                  class="star-icon"
+                  [class.filled]="rating >= star"
+                  (click)="setRating(star)">
+                  {{ rating >= star ? 'star' : 'star_border' }}
+                </mat-icon>
+              </ng-container>
+            </div>
+            <span>{{ rating }}/5</span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="commentForm.invalid" class="submit-button">
+            Ajouter le commentaire
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Section pour afficher les commentaires existants -->
+  <mat-card class="comments-list-card mt-4" *ngIf="game?.comments && game.comments.length > 0">
+    <mat-card-header class="form-header">
+      <mat-card-title class="form-title">Commentaires</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="comment" *ngFor="let comment of game.comments">
+        <div class="comment-header">
+          <p class="author"><strong>{{ comment.author }}</strong></p>
+          <div class="stars">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+              <mat-icon [class.filled]="comment.rating >= star">
+                {{ comment.rating >= star ? 'star' : 'star_border' }}
+              </mat-icon>
+            </ng-container>
+          </div>
+        </div>
+        <p class="comment-text">{{ comment.comment }}</p>
+        <p class="comment-date">Posté le : {{ comment.date | date: 'short' }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Message si aucun commentaire -->
+  <mat-card *ngIf="game?.comments && game.comments.length === 0" class="empty-comments mt-4 text-center">
+    <p>Aucun commentaire pour le moment. Soyez le premier à commenter !</p>
+  </mat-card>
+</div>

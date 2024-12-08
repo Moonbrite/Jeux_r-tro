@@ -1,3 +1,8 @@
+import {Comment} from './comment';
+import {Event} from './event';
+import {Loan} from './loan';
+
+
 export class Game {
   id?: string;
   title?: string;
@@ -10,6 +15,13 @@ export class Game {
   cartridge_condition?: string;
   purchase_price?: number;
   collection?: boolean;
+  favorites?: boolean;
+  tags?: string[];
+  rating?: number;
+  comments?: Comment[];
+  events?: Event[];
+  loans?: Loan[];
+  status?: string;
 
   constructor(
     id?: string,
@@ -22,7 +34,14 @@ export class Game {
     box_condition?: string,
     cartridge_condition?: string,
     purchase_price?: number,
-    collection?: boolean
+    collection?: boolean,
+    favorites?: boolean,
+    tags?: string[],
+    rating?: number,
+    comments?: Comment[],
+    events?: Event[],
+    loans?: Loan[],
+    status?: string
   ) {
     this.id = id;
     this.title = title;
@@ -35,5 +54,12 @@ export class Game {
     this.cartridge_condition = cartridge_condition;
     this.purchase_price = purchase_price;
     this.collection = collection;
+    this.favorites = favorites;
+    this.tags = tags;
+    this.rating = rating;
+    this.comments = comments;
+    this.events = events;
+    this.loans = loans;
+    this.status = status;
   }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Game} from '../../../models/game';
 import {GameService} from '../../../services/game';
-import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
+import {CurrencyPipe, DecimalPipe, NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 
@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
     RouterLink,
     NgIf,
     FormsModule,
+    DecimalPipe,
   ],
   templateUrl: './list-game.component.html',
   standalone: true,
@@ -83,5 +84,19 @@ export class ListGameComponent implements OnInit {
   }
 
 
+  addFavori(id: string | undefined) {
+    const game = this.games.find((g) => g.id === id);
 
+    if (game) {
+      game.favorites = !game.favorites;
+      this.updateGame(game);
+    }
+  }
+
+  updateGame(game: Game): void {
+    this.gameService.updateGame(game).subscribe({
+      next: (updatedGame) => console.log('Mise à jour réussie:', updatedGame),
+      error: (err) => console.error('Erreur lors de la mise à jour:', err),
+    });
+  }
 }

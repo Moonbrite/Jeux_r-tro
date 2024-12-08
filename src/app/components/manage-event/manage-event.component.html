@@ -1,0 +1,50 @@
+<div class="add-event-container">
+  <mat-card class="event-form-card">
+    <mat-card-header class="form-header">
+      <mat-card-title class="form-title">Créer un événement</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="eventForm" (ngSubmit)="submitEvent()" class="event-form mt-3">
+        <div class="form-grid">
+          <!-- Champ Nom -->
+          <mat-form-field appearance="outline">
+            <mat-label>Nom de l'événement</mat-label>
+            <input matInput formControlName="name" required placeholder="Entrez le nom de l'événement"/>
+            <mat-error *ngIf="eventForm.get('name')?.invalid">Le nom est requis</mat-error>
+          </mat-form-field>
+
+          <!-- Champ Description -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="4" required placeholder="Décrivez l'événement"></textarea>
+            <mat-error *ngIf="eventForm.get('description')?.invalid">La description est requise</mat-error>
+          </mat-form-field>
+
+          <!-- Champ Date -->
+          <div class="date-picker-container">
+            <label for="eventDate" class="date-picker-label">Date de l'événement</label>
+            <input
+              type="date"
+              id="eventDate"
+              class="date-picker-input"
+              formControlName="date"
+              required
+            />
+            <div *ngIf="eventForm.get('date')?.invalid && eventForm.get('date')?.touched" class="error-message">
+              La date est requise
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Actions -->
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="eventForm.invalid" class="submit-button">
+            Créer l'événement
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
