@@ -19,6 +19,10 @@ export class EventService {
     return this.httpClient.post<Event>(this.apiUrl,event)
   }
 
+  getAll():Observable<Event[]> {
+    return this.httpClient.get<Event[]>(this.apiUrl)
+  }
+
 
 
 

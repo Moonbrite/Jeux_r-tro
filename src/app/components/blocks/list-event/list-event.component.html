@@ -1,0 +1,14 @@
+<div class="container mx-auto px-6 py-8 bg-gray-900 text-white font-mono">
+  <button class="inline-block mb-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg hover:cursor-pointer" routerLink="/add/event">
+    Ajouter un événements 📅
+  </button>
+  <h1 class="text-3xl font-bold text-yellow-400 text-center">📅 Événements</h1>
+
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let event of events" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold text-purple-400">{{ event.name }}</h2>
+      <p class="text-gray-400 mt-2">{{ event.description }}</p>
+      <p class="text-gray-500 mt-4">🕒 {{ event.date | date:'dd MMMM yyyy' }}</p>
+    </div>
+  </div>
+</div>

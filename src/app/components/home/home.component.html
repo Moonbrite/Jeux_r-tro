@@ -1,11 +1,35 @@
-<div class="flex gap-5">
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-4 mt-3" routerLink="/add/game">
-    Ajouter un jeux +
-  </button>
+<section class="bg-gray-900 text-white font-mono py-16 px-6">
+  <div class="container mx-auto text-center">
+    <h1 class="text-4xl font-bold text-yellow-400">Bienvenue sur My_Games</h1>
+    <p class="mt-4 text-lg text-gray-300">
+      My_Games est une plateforme dédiée aux passionnés de jeux rétro 🎮.
+      Cataloguez votre collection, partagez-la avec vos amis et découvrez les perles rares du gaming !
+    </p>
 
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-4 mt-3" routerLink="/add/event">
-    Ajouter un event +
-  </button>
-</div>
+    <div class="mt-10 flex justify-center space-x-6">
+      <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+        📜 Découvrir les Collections
+      </a>
+      <a routerLink="/add/game" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+        🎮 Ajouter un Jeu
+      </a>
+    </div>
+  </div>
+  
+  <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold text-yellow-400">🔍 Recherchez des Jeux</h2>
+      <p class="text-gray-400 mt-2">Trouvez vos jeux favoris et enrichissez votre collection.</p>
+    </div>
 
-<app-list-game></app-list-game>
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold text-yellow-400">📚 Gérez votre Collection</h2>
+      <p class="text-gray-400 mt-2">Ajoutez, modifiez et organisez vos jeux facilement.</p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold text-yellow-400">👾 Partagez avec vos Amis</h2>
+      <p class="text-gray-400 mt-2">Montrez vos trouvailles et échangez vos astuces !</p>
+    </div>
+  </div>
+</section>

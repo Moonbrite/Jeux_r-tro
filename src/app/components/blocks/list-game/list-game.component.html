@@ -1,192 +1,106 @@
-<div class="container mx-auto px-4 py-6">
-  <div class="filter-section bg-white shadow-md rounded-lg p-6 mb-6">
+
+<div class="container mx-auto px-6 py-8 bg-gray-900 text-white font-mono">
+  <a routerLink="/add/game" class="inline-block mb-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+    🎮 Ajouter un Jeu
+  </a>
+  <!-- Section des filtres -->
+  <div class="filter-section bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
     <div class="flex flex-wrap items-center gap-4">
-      <button id="cursor-pointer dropdownHoverButtonplatforms" data-dropdown-toggle="dropdownHoverplatforms"
-              data-dropdown-trigger="hover"
-              class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      <button id="dropdownHoverButtonplatforms" data-dropdown-toggle="dropdownHoverplatforms"
+              class="cursor-pointer text-white bg-purple-600 hover:bg-purple-700 font-bold rounded-lg text-sm px-5 py-2.5 flex items-center"
               type="button">
-        Console
-        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-             viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        🎮 Console
+        <svg class="w-3 h-3 ml-2" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-width="2" d="m1 1 4 4 4-4"/>
         </svg>
       </button>
 
-      <!-- Dropdown menu -->
-      <div id="dropdownHoverplatforms"
-           class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 list-none p-0 my-0"
-            aria-labelledby="dropdownHoverButtonplatforms">
+      <div id="dropdownHoverplatforms" class="z-10 hidden bg-gray-700 rounded-lg shadow-md w-48">
+        <ul class="ps-0 py-2 list-none text-sm text-gray-300">
           <li *ngFor="let platform of platforms" (click)="selectedPlatform = platform; applyFilters()">
-            <a
-              class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ platform }}</a>
+            <a class="block px-4 py-2 hover:bg-purple-500 hover:cursor-pointer">{{ platform }}</a>
           </li>
         </ul>
       </div>
 
-      <button id="dropdownHoverButtongenres" data-dropdown-toggle="dropdownHovergenres" data-dropdown-trigger="hover"
-              class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      <button id="dropdownHoverButtongenres" data-dropdown-toggle="dropdownHovergenres"
+              class="cursor-pointer  text-white bg-purple-600 hover:bg-purple-700 font-bold rounded-lg text-sm px-5 py-2.5 flex items-center"
               type="button">
-        Genre
-        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-             viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        🎭 Genre
+        <svg class="w-3 h-3 ml-2" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-width="2" d="m1 1 4 4 4-4"/>
         </svg>
       </button>
 
-      <!-- Dropdown menu -->
-      <div id="dropdownHovergenres"
-           class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 list-none p-0 my-0"
-            aria-labelledby="dropdownHoverButtongenres">
+      <div id="dropdownHovergenres" class="z-10 hidden bg-gray-700 rounded-lg shadow-md w-48">
+        <ul class="ps-0 py-2 list-none text-sm text-gray-300">
           <li *ngFor="let genre of genres" (click)="selectedGenre = genre; applyFilters()">
-            <a
-              class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ genre }}</a>
+            <a class="block px-4 py-2 hover:bg-purple-500 hover:cursor-pointer">{{ genre }}</a>
           </li>
         </ul>
       </div>
 
-      <button id="dropdownHoverButtonboxConditionss" data-dropdown-toggle="dropdownHoverboxConditions"
-              data-dropdown-trigger="hover"
-              class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      <button id="dropdownHoverButtonboxConditions" data-dropdown-toggle="dropdownHoverboxConditions"
+              class="cursor-pointer text-white bg-purple-600 hover:bg-purple-700 font-bold rounded-lg text-sm px-5 py-2.5 flex items-center"
               type="button">
-        Etat du produit
-        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-             viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        📦 État du produit
+        <svg class="w-3 h-3 ml-2" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-width="2" d="m1 1 4 4 4-4"/>
         </svg>
       </button>
 
-      <!-- Dropdown menu -->
-      <div id="dropdownHoverboxConditions"
-           class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 list-none p-0 my-0"
-            aria-labelledby="dropdownHoverButtonboxConditions">
+      <div id="dropdownHoverboxConditions" class="z-10 hidden bg-gray-700 rounded-lg shadow-md w-48">
+        <ul class="ps-0 py-2 list-none text-sm text-gray-300">
           <li *ngFor="let boxCondition of boxConditions" (click)="selectedBoxCondition = boxCondition; applyFilters()">
-            <a
-              class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ boxCondition }}</a>
+            <a class="block px-4 py-2 hover:bg-purple-500 hover:cursor-pointer">{{ boxCondition }}</a>
           </li>
         </ul>
       </div>
 
-      <!-- Price Input -->
       <div class="flex items-center space-x-2">
-        <label class="text-sm font-medium text-gray-700">Prix maximum</label>
-        <input
-          type="number"
-          class="price-input form-input rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          [(ngModel)]="selectedPrice"
-          (input)="applyFilters()"
-          placeholder="Prix max"
-          min="0"
-          step="10">
-        <span *ngIf="selectedPrice !== null" class="text-sm text-gray-600">
-          {{ selectedPrice | currency:'EUR' }}
-        </span>
+        <label class="text-sm">💰 Prix max:</label>
+        <input type="number" class="form-input bg-gray-700 text-white rounded-md px-3 py-2 w-24" [(ngModel)]="selectedPrice" (input)="applyFilters()" placeholder="Max">
       </div>
 
-      <!-- Reset Filters Button -->
-      <button
-        (click)="resetFilters()"
-        class="btn-reset bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition duration-300">
-        Réinitialiser
+      <button (click)="resetFilters()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">
+        🔄 Réinitialiser
       </button>
-    </div>
-
-    <!-- Active Filters Display -->
-    <div class="active-filters mt-4 flex items-center space-x-2 text-sm text-gray-600">
-      <span *ngIf="selectedPlatform" class="filter-tag">{{ selectedPlatform }}</span>
-      <span *ngIf="selectedGenre" class="filter-tag">{{ selectedGenre }}</span>
-      <span *ngIf="selectedBoxCondition" class="filter-tag">{{ selectedBoxCondition }}</span>
-      <span *ngIf="selectedPrice" class="filter-tag">Prix max: {{ selectedPrice | currency:'EUR' }}</span>
     </div>
   </div>
 
-  <!-- Game List -->
+  <!-- Liste des jeux -->
   <div class="game-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div *ngFor="let game of filteredGames" class="game-card group ">
-      <div class="flex justify-end flex-col">
-
+    <div *ngFor="let game of filteredGames" class="game-card bg-gray-800 rounded-lg shadow-lg p-5 transition transform hover:scale-105">
+      <div class="flex justify-between">
+        <h3 class="text-lg font-bold text-yellow-400">{{ game.title }}</h3>
         <a (click)="addFavori(game.id)">
-          <svg
-            class="star"
-            width="46"
-            height="46"
-            [attr.fill]="game.favorites ? '#FFD700' : 'none'"
-            stroke="#ffffff"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2.5 8.942 8.739 2 9.746l5.03 4.916L5.826 21.5 12 18.21l6.174 3.29-1.194-6.838L22 9.746l-6.904-1.007L11.999 2.5Z"
-            ></path>
+          <svg width="24" height="24" [attr.fill]="game.favorites ? '#FFD700' : 'none'" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M12 2.5 8.942 8.739 2 9.746l5.03 4.916L5.826 21.5 12 18.21l6.174 3.29-1.194-6.838L22 9.746l-6.904-1.007L11.999 2.5Z"/>
           </svg>
         </a>
-        <div *ngIf="game.rating">
-         <p style="font-size: .9rem;">{{game.rating |number:'1.0-2'}} avg Note</p>
-        </div>
       </div>
-      <h3 class="game-title">{{ game.title }}</h3>
-      <div class="game-details">
-        <div class="grid grid-cols-2 gap-2">
-          <div>
-            <strong>Plateforme:</strong>
-            <span>{{ game.platform }}</span>
-          </div>
-          <div>
-            <strong>Genre:</strong>
-            <span>{{ game.genre }}</span>
-          </div>
-          <div>
-            <strong>Développeur:</strong>
-            <span>{{ game.developer }}</span>
-          </div>
-          <div>
-            <strong>Éditeur:</strong>
-            <span>{{ game.publisher }}</span>
-          </div>
-          <div>
-            <strong>Année:</strong>
-            <span>{{ game.release_year }}</span>
-          </div>
-          <div>
-            <strong>État:</strong>
-            <span>{{ game.box_condition }} / {{ game.cartridge_condition }}</span>
-          </div>
-        </div>
+      <p class="text-sm text-gray-400">{{ game.genre }} | {{ game.platform }}</p>
+      <p class="text-sm text-gray-500 mt-2">💾 Développeur: {{ game.developer }}</p>
+      <p class="text-sm text-gray-500">🏢 Éditeur: {{ game.publisher }}</p>
+      <p class="text-sm text-gray-500">📅 Année: {{ game.release_year }}</p>
+      <p class="text-sm text-gray-500">📦 État: {{ game.box_condition }} / {{ game.cartridge_condition }}</p>
 
-        <div class="mt-4 flex justify-between items-center">
-          <p class="text-lg font-bold">
-            <strong>Prix:</strong> {{ game.purchase_price | currency:'EUR' }}
-          </p>
-          <span *ngIf="game.collection" class="badge">Collection</span>
-        </div>
+      <div class="mt-4 flex justify-between items-center">
+        <p class="text-lg font-bold text-green-400">💲 {{ game.purchase_price | currency:'EUR' }}</p>
+        <span *ngIf="game.collection" class="bg-purple-600 text-white text-xs px-3 py-1 rounded-lg">📚 Collection</span>
+      </div>
 
-        <div class="game-actions mt-4 flex space-x-4">
-          <button
-            (click)="deleteGame(game.id)"
-            class="btn btn-delete flex-grow flex items-center justify-center">
-            <i class="mr-2">🗑️</i> Supprimer
-          </button>
-          <button
-            [routerLink]="['/game', game?.id]"
-            class="btn btn-edit flex-grow flex items-center justify-center">
-            <i class="mr-2">✏️</i> Modifier
-          </button>
-          <button
-            [routerLink]="['/game/rating', game?.id]"
-            class="btn btn-edit flex-grow flex items-center justify-center">
-             Noté / Commentaire
-          </button>
-        </div>
-        <button
-          [routerLink]="['/game/loan', game?.id]"
-          class="loan-btn">
-          Emprunter
+      <div class="game-actions mt-4 flex space-x-4">
+        <button (click)="deleteGame(game.id)" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg">
+          🗑️ Supprimer
+        </button>
+        <button [routerLink]="['/game', game?.id]" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
+          ✏️ Modifier
         </button>
       </div>
+      <button [routerLink]="['/game/loan', game?.id]" class="mt-3 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg w-full">
+        📖 Emprunter
+      </button>
     </div>
   </div>
 </div>
