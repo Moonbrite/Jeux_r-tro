@@ -47,6 +47,7 @@
         <svg class="w-3 h-3 ml-2" fill="none" viewBox="0 0 10 6">
           <path stroke="currentColor" stroke-width="2" d="m1 1 4 4 4-4"/>
         </svg>
+
       </button>
 
       <div id="dropdownHoverboxConditions" class="z-10 hidden bg-gray-700 rounded-lg shadow-md w-48">
@@ -77,6 +78,9 @@
           <svg width="24" height="24" [attr.fill]="game.favorites ? '#FFD700' : 'none'" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
             <path d="M12 2.5 8.942 8.739 2 9.746l5.03 4.916L5.826 21.5 12 18.21l6.174 3.29-1.194-6.838L22 9.746l-6.904-1.007L11.999 2.5Z"/>
           </svg>
+          <div *ngIf="game.rating">
+            <p style="font-size: .9rem;">{{game.rating |number:'1.0-2'}} avg Note</p>
+          </div>
         </a>
       </div>
       <p class="text-sm text-gray-400">{{ game.genre }} | {{ game.platform }}</p>
@@ -97,8 +101,13 @@
         <button [routerLink]="['/game', game?.id]" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
           ✏️ Modifier
         </button>
+        <button
+          [routerLink]="['/game/rating', game?.id]"
+          class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
+          Noté / Commentaire
+        </button>
       </div>
-      <button [routerLink]="['/game/loan', game?.id]" class="mt-3 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg w-full">
+      <button [routerLink]="['/game/loan', game?.id]" class=" bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lgmt-3 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg w-full">
         📖 Emprunter
       </button>
     </div>
